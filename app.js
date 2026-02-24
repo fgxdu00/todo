@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'taska_tasks';
+const THEME_KEY = 'taska_theme';
 
 let tasks = [];
 let currentFilter = 'all';
@@ -15,6 +16,7 @@ const modalOverlay = document.getElementById('modal-overlay');
 const modalInput = document.getElementById('modal-input');
 const modalSave = document.getElementById('modal-save');
 const modalCancel = document.getElementById('modal-cancel');
+const themeToggle = document.getElementById('theme-toggle');
 
 function load() {
     try {
@@ -221,5 +223,26 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Enter' && e.ctrlKey && editingId) saveEdit();
 });
 
+function loadTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem(THEME_KEY, 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem(THEME_KEY, 'dark');
+    }
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+
 load();
+loadTheme();
 render();

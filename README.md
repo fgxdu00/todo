@@ -9,6 +9,7 @@ A clean, minimal to-do list app built with vanilla HTML, CSS, and JavaScript.
 - **Edit tasks** via an inline modal dialog
 - **Delete tasks** individually or clear all completed at once
 - **Filter tasks** — All, Active, or Completed
+- **Toggle light and dark theme** with a single button
 - Responsive layout for mobile and desktop
 - Fully accessible keyboard navigation
 
@@ -50,3 +51,7 @@ taska/
 | `Enter` | Submit new task |
 | `Esc` | Close edit modal |
 | `Ctrl + Enter` | Save edited task |
+
+## Academic Context
+
+This project was created as part of a laboratory assignment for a university course.
